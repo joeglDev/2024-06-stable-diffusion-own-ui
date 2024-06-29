@@ -1,16 +1,19 @@
 'use client';
 import { UserInputForm } from "@/components/user-input/UserInputForm";
-import styles from "./page.module.css";
 import { ImageDisplay } from "@/components/image-display/ImageDisplay";
-import { FlexColumnContainer } from "@/components/main-page";
+import { FlexRowContainer } from "@/components/main-page.style";
+import { AppContextProvider } from "@/context/AppContext";
+
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <FlexColumnContainer>
-      <UserInputForm/>
-      <ImageDisplay/>
-      </FlexColumnContainer>
+    <main>
+      <FlexRowContainer>
+        <AppContextProvider>
+          <UserInputForm />
+          <ImageDisplay />
+        </AppContextProvider>
+      </FlexRowContainer>
     </main>
   );
 }
